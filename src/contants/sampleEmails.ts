@@ -46,3 +46,30 @@ Best regards,
 
 
 `
+
+// asking for appointment
+export const APPOINTMENT_EMAIL = `
+
+
+Dear Dr. Chetan,
+
+I trust this email finds you well. My name is Jane Doe, and I am reaching out to request an appointment with you regarding a health concern I have.
+
+I am currently residing in the United States, and I have heard positive feedback about your expertise in Cardiology. After conducting some research, I believe your professional opinion would be invaluable in addressing my health condition.
+
+
+I have been experiencing occasional chest discomfort, and given your specialization in Cardiology, I thought it would be prudent to seek your advice. While the symptoms are not severe, I believe it's essential to address them promptly and ensure peace of mind.
+
+I understand that your time is valuable, and I appreciate your consideration of my appointment request. Please let me know if there are specific forms or additional information you require prior to the appointment.
+
+
+Thank you for your time, and I look forward to the opportunity to consult with you.
+
+Best regards,
+
+Jane Doe
+(555) 123-4567
+jane.doe@email.com
+
+
+`

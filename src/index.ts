@@ -1,20 +1,25 @@
 import dotenv from 'dotenv'
-import { extractData, findEmailType } from './helper/extractInfo'
-import { NEWSLETTER_EMAIL, OTP_EMAIL } from './contants/sampleEmails'
+import { extractData, findEmailCategory } from './helper/extractInfo'
+import { NEWSLETTER_EMAIL, OTP_EMAIL, APPOINTMENT_EMAIL } from './contants/sampleEmails'
+import { callOpenAI } from './helper/helpers'
+import { summarizeSystemPrompt } from './helper/prompts'
 dotenv.config()
 
 const main = async () => {
-	const emailType = await findEmailType({ emailContent: OTP_EMAIL })
-	console.log('Email Type is ', emailType)
+	const emailCategory = await findEmailCategory({ emailContent: APPOINTMENT_EMAIL })
 
-	if (!emailType) {
-		console.error('Email type is not defined')
-		return undefined
+	console.log('Email Category is ', emailCategory)
+
+	if (!emailCategory) {
+		throw new Error('Email type is not defined')
 	}
-
-	const extractedData = await extractData(emailType, [{ emailContent: OTP_EMAIL }])
+	const extractedData = await extractData(emailCategory, [{ emailContent: APPOINTMENT_EMAIL }])
 
 	console.log('Extracted data is ', extractedData)
+
+	const result = await callOpenAI(summarizeSystemPrompt, NEWSLETTER_EMAIL)
+
+	console.log('Result is ', result)
 }
 
 main()

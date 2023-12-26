@@ -28,7 +28,7 @@ const loadDocument = async (documentPath: string) => {
 	return docs
 }
 
-export const findEmailType = async (email: { emailContent: string }): Promise<string | undefined> => {
+export const findEmailCategory = async (email: { emailContent: string }): Promise<string | undefined> => {
 	try {
 		const parser = new JsonOutputFunctionsParser()
 		const extractionFunctionSchema = {

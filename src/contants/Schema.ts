@@ -9,17 +9,20 @@ const OTP = {
 	}),
 }
 
-const Newsletters = {
-	SchemaName: 'Newsletters',
+const PatientAppointment = {
+	SchemaName: 'PatientAppointment',
 	Schema: z.object({
-		NEWSLETTER_SUMMARY: z.string(),
+		PatientName: z.string(),
+		PatientCountry: z.string(),
+		PatientEmail: z.string(),
+		PatientHealthConcern: z.string(),
 	}),
 }
 
 // Here we have maping of email type to email object
 export const emailJson: EmailSchemas = {
 	OTP: OTP.Schema,
-	Newsletters: Newsletters.Schema,
+	PatientAppointment: PatientAppointment.Schema,
 }
 
 export const EmailEnum = Object.keys(emailJson) as EmailTypes[]
